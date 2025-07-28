@@ -34,7 +34,6 @@ h4 {
     color: var(--blue);
 }
 
-/* Header & Navigation */
 header {
     background-color: var(--white);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -133,11 +132,10 @@ nav {
     transform: translateY(-2px);
 }
 
-/* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(27, 54, 93, 0.7), rgba(27, 54, 93, 0.7)),
-        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3');
+    background: linear-gradient(rgba(199, 199, 94, 0.3), rgba(199, 199, 94, 0.3)),
+        url("/assets/images/background.jpg");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -224,7 +222,6 @@ nav {
     animation: bounce 2s infinite;
 }
 
-/* Menu Section */
 .menu-section {
     padding: 5rem 1rem;
     background-color: var(--white);
@@ -318,7 +315,6 @@ nav {
     font-weight: 500;
 }
 
-/* About Section */
 .about-section {
     padding: 5rem 1rem;
     background-color: var(--gray-light);
@@ -377,7 +373,6 @@ nav {
     border-radius: 10px;
 }
 
-/* Contact Section */
 .contact-section {
     padding: 5rem 1rem;
     background-color: var(--white);
@@ -411,6 +406,14 @@ nav {
     transition: var(--transition);
 }
 
+.info-item-long {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--gray-light);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
 .info-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -421,6 +424,7 @@ nav {
     color: var(--gold);
     margin-bottom: 1rem;
 }
+
 
 .contact-form {
     background-color: var(--gray-light);
@@ -468,7 +472,6 @@ nav {
     background-color: var(--gold-light);
 }
 
-/* Reservation Section */
 .reservation-section {
     padding: 5rem 1rem;
     background-color: var(--gray-light);
@@ -496,7 +499,6 @@ nav {
     margin-bottom: 1.5rem;
 }
 
-/* Footer */
 footer {
     background-color: var(--blue);
     color: var(--white);
@@ -539,7 +541,6 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Animations */
 @keyframes fadeInUp {
     to {
         opacity: 1;
@@ -572,7 +573,6 @@ footer {
     }
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
