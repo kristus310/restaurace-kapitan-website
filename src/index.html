@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurace Kapitán</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">Kapitán</div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Domů</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">O nás</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="#reservation" class="reservation-btn">Rezervace</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="animate-text">Restaurace Kapitán</h1>
+                <p class="animate-text delay-1">Výjimečná gastronomická zkušenost v srdci Česka</p>
+                <div class="hero-buttons">
+                    <a href="#menu" class="cta-button">Prohlédnout menu</a>
+                    <a href="#reservation" class="cta-button secondary">Rezervovat stůl</a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <section id="menu" class="menu-section">
+            <h2>Naše Menu</h2>
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="main">Hlavní jídla</button>
+                <button class="category-btn" data-category="starters">Předkrmy</button>
+                <button class="category-btn" data-category="desserts">Dezerty</button>
+                <button class="category-btn" data-category="drinks">Nápoje</button>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-category active" id="main">
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3"
+                                    alt="Pečená treska">
+                            </div>
+                            <div class="menu-item-content">
+                                <h4>Pečená treska</h4>
+                                <p>Čerstvá treska s bylinkovým máslem a sezónní zeleninou</p>
+                                <span class="price">320 Kč</span>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef?ixlib=rb-4.0.3"
+                                    alt="Hovězí steak">
+                            </div>
+                            <div class="menu-item-content">
+                                <h4>Hovězí steak</h4>
+                                <p>Angus steak s bramborovou kaší a grilovanou zeleninou</p>
+                                <span class="price">450 Kč</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>O nás</h2>
+                    <p>Restaurace Kapitán je místem, kde se setkává tradiční česká kuchyně s moderními gastronomickými
+                        trendy. Naše kuchyně používá pouze ty nejčerstvější suroviny od lokálních dodavatelů.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-utensils"></i>
+                            <h3>Čerstvé suroviny</h3>
+                            <p>Používáme pouze lokální a sezónní ingredience</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-award"></i>
+                            <h3>Profesionální tým</h3>
+                            <p>Naši šéfkuchaři mají bohaté zkušenosti</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-glass-cheers"></i>
+                            <h3>Výběr vín</h3>
+                            <p>Rozsáhlá karta českých i zahraničních vín</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3"
+                        alt="Restaurant interior">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Kontakt</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Adresa</h3>
+                        <p>Náměstí Míru 123</p>
+                        <p>Praha 2, 120 00</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <h3>Otevřeno</h3>
+                        <p>Pondělí - Neděle</p>
+                        <p>11:00 - 23:00</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <h3>Rezervace</h3>
+                        <p>Tel: +420 123 456 789</p>
+                        <p>Email: info@restaurace-kapitan.cz</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Napište nám</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required placeholder="Vaše jméno">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder="Váš email">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" required placeholder="Vaše zpráva"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Odeslat</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="reservation" class="reservation-section">
+            <h2>Rezervace stolu</h2>
+            <form id="reservationForm" class="reservation-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" id="resName" name="name" required placeholder="Vaše jméno">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="resEmail" name="email" required placeholder="Váš email">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="date" id="resDate" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="time" id="resTime" name="time" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="resGuests" name="guests" required min="1" max="10"
+                            placeholder="Počet osob">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <textarea id="resMessage" name="message" placeholder="Speciální požadavky"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Rezervovat</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Kapitán</h3>
+                <p>Výjimečná gastronomická zkušenost v srdci Česka</p>
+            </div>
+            <div class="footer-section">
+                <h3>Otevřeno</h3>
+                <p>Pondělí - Neděle</p>
+                <p>11:00 - 23:00</p>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <p>Tel: +420 123 456 789</p>
+                <p>Email: info@restaurace-kapitan.cz</p>
+            </div>
+            <div class="footer-section">
+                <h3>Sledujte nás</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Restaurace Kapitán. Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
