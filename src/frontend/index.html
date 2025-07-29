@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
     <title>Restaurace Kapitán</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +13,10 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 </head>
 
 <body>
@@ -37,7 +42,7 @@
         <section id="home" class="hero">
             <div class="hero-content">
                 <h1 class="animate-text">Restaurace Kapitán</h1>
-                <p class="animate-text delay-1">Výjimečná gastronomická zkušenost v srdci Česka</p>
+                <p class="animate-text delay-1">Poctivá kuchyně a přijemné prostředí v královském městě, Žatec.</p>
                 <div class="hero-buttons">
                     <a href="#menu" class="cta-button">Prohlédnout menu</a>
                     <a href="#reservation" class="cta-button secondary">Rezervovat stůl</a>
@@ -52,36 +57,35 @@
         <section id="menu" class="menu-section">
             <h2>Naše Menu</h2>
             <div class="menu-categories">
-                <button class="category-btn active" data-category="main">Hlavní jídla</button>
-                <button class="category-btn" data-category="starters">Předkrmy</button>
-                <button class="category-btn" data-category="desserts">Dezerty</button>
-                <button class="category-btn" data-category="drinks">Nápoje</button>
+                <button class="category-btn active" data-category="main">Jídelní lístek</button>
+                <button class="category-btn" data-category="drinks">Nápojový lístek</button>
+                <button class="category-btn" data-category="lunch">Obědové menu</button>
             </div>
             <div class="menu-grid">
                 <div class="menu-category active" id="main">
                     <div class="menu-items">
-                        <div class="menu-item">
-                            <div class="menu-item-image">
-                                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3"
-                                    alt="Pečená treska">
-                            </div>
-                            <div class="menu-item-content">
-                                <h4>Pečená treska</h4>
-                                <p>Čerstvá treska s bylinkovým máslem a sezónní zeleninou</p>
-                                <span class="price">320 Kč</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-image">
-                                <img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef?ixlib=rb-4.0.3"
-                                    alt="Hovězí steak">
-                            </div>
-                            <div class="menu-item-content">
-                                <h4>Hovězí steak</h4>
-                                <p>Angus steak s bramborovou kaší a grilovanou zeleninou</p>
-                                <span class="price">450 Kč</span>
-                            </div>
-                        </div>
+                        <div class="menu-carousel">
+                            <div><img src="assets/menu/menu-1.jpg" alt="Jídelní lístek 1"></div>
+                            <div><img src="assets/menu/menu-2.jpg" alt="Jídelní lístek 2"></div>
+                            <div><img src="assets/menu/menu-3.jpg" alt="Jídelní lístek 3"></div>
+                        </div> 
+                    </div>
+                </div>
+                <div class="menu-category" id="drinks">
+                    <div class="menu-items">
+                        <div class="menu-carousel">
+                            <div><img src="assets/menu/drink-1.jpg" alt="Nápojový lístek 1"></div>
+                            <div><img src="assets/menu/drink-2.jpg" alt="Nápojový lístek 2"></div>
+                            <div><img src="assets/menu/drink-3.jpg" alt="Nápojový lístek 3"></div>
+
+                        </div> 
+                    </div>
+                </div>
+                <div class="menu-category" id="lunch">
+                    <div class="menu-items">
+                        <div class="menu-carousel">
+                            <div><img src="assets/menu/weekly.jpg" alt="Obědové menu "></div>
+                        </div> 
                     </div>
                 </div>
             </div>
@@ -107,12 +111,12 @@
                         <div class="feature">
                             <i class="fas fa-glass-cheers"></i>
                             <h3>Oslavy a akce</h3>
-                            <p>Možnost oslav v našem salónku, se soukromím a pohodlí</p>
+                            <p>Možnost oslav v našem salónku, se soukromím a pohodlím</p>
                         </div>
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="/assets/images/interior.jpg"
+                    <img src="assets/images/interior.jpg"
                         alt="Restaurant interior">
                 </div>
             </div>
@@ -150,7 +154,8 @@
                 </div>
                 <div class="contact-form">
                     <h3>Napište nám</h3>
-                    <form id="contactForm">
+                    <form id="contactForm" method="post" action="email-handler.php">
+                        <input type="hidden" name="formType" value="contact">
                         <div class="form-group">
                             <input type="text" id="name" name="name" required placeholder="Vaše jméno">
                         </div>
@@ -168,7 +173,8 @@
 
         <section id="reservation" class="reservation-section">
             <h2>Rezervace stolu</h2>
-            <form id="reservationForm" class="reservation-form">
+            <form id="reservationForm" class="reservation-form" method="post" action="email-handler.php">
+                <input type="hidden" name="formType" value="reservation">
                 <div class="form-row">
                     <div class="form-group">
                         <input type="text" id="resName" name="name" required placeholder="Vaše jméno">
@@ -185,12 +191,11 @@
                         <input type="time" id="resTime" name="time" required>
                     </div>
                     <div class="form-group">
-                        <input type="number" id="resGuests" name="guests" required min="1" max="10"
-                            placeholder="Počet osob">
+                        <input type="number" id="resGuests" name="guests" required min="1" placeholder="Počet osob">
                     </div>
                 </div>
                 <div class="form-group">
-                    <textarea id="resMessage" name="message" placeholder="Speciální požadavky"></textarea>
+                    <textarea id="resMessage" name="message" placeholder="Poznámka (nepovinné)"></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Rezervovat</button>
             </form>
