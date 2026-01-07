@@ -79,8 +79,10 @@ class MenuCarousel {
         this.totalSlides = this.slides.length;
         
         if (this.totalSlides <= 1) {
+            this.slides[0].classList.add('active');
             if (this.prevBtn) this.prevBtn.style.display = 'none';
             if (this.nextBtn) this.nextBtn.style.display = 'none';
+            if (this.dotsContainer) this.dotsContainer.style.display = 'none';
             return;
         }
         this.init();

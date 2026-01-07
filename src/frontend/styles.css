@@ -459,11 +459,6 @@ nav {
     background-color: #999999;
 }
 
-.carousel-btn:disabled:hover {
-    transform: translateY(-50%);
-    background-color: #999999;
-}
-
 .carousel-prev {
     left: -60px;
 }
