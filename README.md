@@ -8,6 +8,7 @@ A restaurant website built for Restaurace Kapitán, located in the historic city
 
 🌐 **Live Website**  
 - The site is hosted on **WEDOS Hosting** and is currently active and running.
+- Official URL: https://restaurace-kapitan.cz/
 
 ---
 

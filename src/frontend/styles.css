@@ -1,12 +1,22 @@
 :root {
-    --gold: #D4AF37;
-    --gold-light: #E5C76B;
+    --gold: #B8941F;
+    --gold-light: #D4AF37;
+    --gold-hover: #E5C76B;
     --blue: #1B365D;
     --blue-light: #2C5282;
     --white: #FFFFFF;
     --gray-light: #F5F5F5;
-    --gray: #666666;
+    --gray: #4A4A4A;
+    --gray-dark: #333333;
     --transition: all 0.3s ease;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/roboto-v50-latin_latin-ext-regular.woff2') format('woff2');
 }
 
 * {
@@ -22,16 +32,46 @@ html {
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    color: var(--blue);
+    color: var(--gray-dark);
     overflow-x: hidden;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--gold);
+    color: var(--white);
+    padding: 8px;
+    text-decoration: none;
+    z-index: 10001;
+    font-weight: 600;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
 h1,
 h2,
 h3,
 h4 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
     color: var(--blue);
+    line-height: 1.2;
+}
+
+h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 header {
@@ -62,11 +102,20 @@ nav {
 }
 
 .logo {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--gold);
+    color: var(--blue);
     transition: var(--transition);
+}
+
+.gold-letter {
+    color: var(--gold);
+}
+
+.logo a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .logo:hover {
@@ -79,6 +128,8 @@ nav {
     gap: 6px;
     cursor: pointer;
     padding: 5px;
+    background: transparent;
+    border: none;
 }
 
 .hamburger span {
@@ -104,13 +155,17 @@ nav {
     position: relative;
 }
 
+.nav-links a:hover {
+    color: var(--gold);
+}
+
 .nav-links a::after {
     content: '';
     position: absolute;
     bottom: -5px;
     left: 0;
     width: 0;
-    height: 2px;
+    height: 3px;
     background-color: var(--gold);
     transition: var(--transition);
 }
@@ -135,9 +190,10 @@ nav {
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(199, 199, 94, 0.3), rgba(199, 199, 94, 0.3)),
-        url("assets/images/background.jpg");
+        url("assets/images/background.webp");
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -145,6 +201,12 @@ nav {
     color: var(--white);
     padding: 0 1rem;
     position: relative;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll;
+    }
 }
 
 .hero-content {
@@ -155,6 +217,7 @@ nav {
     font-size: 4rem;
     margin-bottom: 1rem;
     color: var(--white);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5);
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 1s forwards;
@@ -163,6 +226,8 @@ nav {
 .hero-content p {
     font-size: 1.5rem;
     margin-bottom: 2rem;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7), 0 0 15px rgba(0, 0, 0, 0.5);
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 1s forwards 0.3s;
@@ -194,6 +259,10 @@ nav {
     transform: translateY(-2px);
 }
 
+.cta-button:active {
+    background-color: var(--gold);
+}
+
 .cta-button.secondary {
     background-color: transparent;
     border: 2px solid var(--white);
@@ -214,6 +283,7 @@ nav {
     align-items: center;
     gap: 0.5rem;
     color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     opacity: 0;
     animation: fadeIn 1s forwards 1s;
 }
@@ -249,12 +319,18 @@ nav {
     border-radius: 5px;
     cursor: pointer;
     transition: var(--transition);
+    font-weight: 500;
 }
 
 .category-btn:hover,
 .category-btn.active {
     background-color: var(--gold);
     color: var(--white);
+    font-weight: 600;
+}
+
+.category-btn:not(.active):focus {
+    background-color: rgba(184, 148, 31, 0.1);
 }
 
 .menu-grid {
@@ -301,61 +377,132 @@ nav {
 .menu-carousel {
     max-width: 800px;
     margin: 0 auto;
+    position: relative;
 }
 
-.menu-carousel img {
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.carousel-track {
+    display: flex;
+    position: relative;
+    min-height: 200px;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    width: 100%;
+    flex-shrink: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    position: relative;
+    pointer-events: auto;
+}
+
+.carousel-slide img {
     width: 100%;
     height: auto;
     max-height: 900px;
     object-fit: contain;
     border-radius: 10px;
+    display: block;
 }
 
-.slick-dots {
-    bottom: -50px;
-}
-
-.slick-dots li button:before {
-    color: var(--gold);
-    font-size: 12px;
-}
-
-.slick-dots li.slick-active button:before {
-    color: var(--gold);
-}
-
-.slick-prev,
-.slick-next {
+.carousel-btn {
     position: absolute;
-    top: 50%;           
+    top: 50%;
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
     background-color: var(--gold);
     border-radius: 50%;
     border: none;
-    color: white;
+    color: var(--white);
     font-size: 18px;
-    z-index: 1;
+    z-index: 10;
     transition: var(--transition);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.slick-prev:hover,
-.slick-next:hover {
+.carousel-btn:hover {
     background-color: var(--gold-light);
+    transform: translateY(-50%) scale(1.1);
 }
 
-.slick-prev {
+.carousel-btn:active {
+    background-color: var(--gold);
+}
+
+.carousel-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #999999;
+}
+
+.carousel-btn:disabled:hover {
+    transform: translateY(-50%);
+    background-color: #999999;
+}
+
+.carousel-prev {
     left: -60px;
 }
 
-.slick-next {
+.carousel-next {
     right: -60px;
 }
 
-.slick-prev:before,
-.slick-next:before {
-    display: none;
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(184, 148, 31, 0.5);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0;
+    margin: 0;
+}
+
+.carousel-dot:hover {
+    background-color: var(--gold-light);
+    border-color: var(--blue);
+    transform: scale(1.2);
+}
+
+.carousel-dot.active {
+    background-color: var(--gold);
+    border-color: var(--blue);
+    transform: scale(1.2);
 }
 
 .menu-category {
@@ -370,8 +517,11 @@ nav {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
-    color: var(--gold);
-    font-weight: 500;
+    color: var(--blue);
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
 }
 
 .about-section {
@@ -421,8 +571,12 @@ nav {
 
 .feature i {
     font-size: 2rem;
-    color: var(--gold);
+    color: var(--blue);
     margin-bottom: 1rem;
+}
+
+.feature:hover i {
+    color: var(--gold);
 }
 
 .about-image img {
@@ -480,8 +634,12 @@ nav {
 
 .info-item i {
     font-size: 2rem;
-    color: var(--gold);
+    color: var(--blue);
     margin-bottom: 1rem;
+}
+
+.info-item:hover i {
+    color: var(--gold);
 }
 
 
@@ -504,16 +662,31 @@ nav {
 .form-group textarea {
     width: 100%;
     padding: 1rem;
-    border: 1px solid #ddd;
+    border: 2px solid #ccc;
     border-radius: 5px;
     font-family: inherit;
     transition: var(--transition);
+    background-color: var(--white);
+    color: var(--gray-dark);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--gray);
+    opacity: 1;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--blue);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-    outline: none;
     border-color: var(--gold);
+    background-color: var(--white);
 }
 
 .submit-btn {
@@ -525,10 +698,20 @@ nav {
     border-radius: 5px;
     cursor: pointer;
     transition: var(--transition);
+    font-weight: 600;
+    font-size: 1rem;
 }
 
 .submit-btn:hover {
     background-color: var(--gold-light);
+}
+
+.submit-btn:active {
+    background-color: var(--gold);
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
 }
 
 .reservation-section {
@@ -574,7 +757,7 @@ footer {
 }
 
 .footer-section h3 {
-    color: var(--gold);
+    color: var(--gold-light);
     margin-bottom: 1.5rem;
 }
 
@@ -587,17 +770,27 @@ footer {
     color: var(--white);
     font-size: 1.5rem;
     transition: var(--transition);
+    display: inline-flex;
+    padding: 0.5rem;
+    text-decoration: none;
 }
 
 .social-links a:hover {
-    color: var(--gold);
+    color: var(--gold-light);
     transform: translateY(-3px);
+    background-color: rgba(212, 175, 55, 0.1);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.credits a {
+    color: var(--gold-light);
+    text-decoration: none;
 }
 
 @keyframes fadeInUp {
@@ -698,72 +891,75 @@ footer {
 }
 
 @media (max-width: 768px) {
-
-    .slick-prev,
-    .slick-next {
+    .carousel-prev,
+    .carousel-next {
         top: auto;
         bottom: -60px;
         transform: none;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
     }
 
-    .slick-prev {
+    .carousel-prev {
         left: 50%;
         transform: translateX(-70px);
     }
 
-    .slick-next {
+    .carousel-next {
         right: 50%;
         transform: translateX(70px);
     }
 
-    .slick-prev:hover,
-    .slick-next:hover {
-        transform: translateX(-70px) scale(1.1);
+    .carousel-prev:hover,
+    .carousel-next:hover {
+        transform: translateX(-70px) translateY(0) scale(1.1);
     }
 
-    .slick-next:hover {
-        transform: translateX(70px) scale(1.1);
+    .carousel-next:hover {
+        transform: translateX(70px) translateY(0) scale(1.1);
+    }
+
+    .carousel-prev:active,
+    .carousel-next:active {
+        transform: translateX(-70px) translateY(0) scale(0.95);
+    }
+
+    .carousel-next:active {
+        transform: translateX(70px) translateY(0) scale(0.95);
     }
 
     .menu-carousel {
-        margin-bottom: 80px;
-    }
-
-    .menu-carousel .slick-list {
-        margin-bottom: 70px;
+        margin-bottom: 100px;
     }
 }
 
 @media (max-width: 480px) {
-
-    .slick-prev,
-    .slick-next {
-        width: 45px;
-        height: 45px;
-        font-size: 16px;
+    .carousel-prev,
+    .carousel-next {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
         bottom: -55px;
     }
 
-    .slick-prev {
+    .carousel-prev {
         transform: translateX(-60px);
     }
 
-    .slick-next {
+    .carousel-next {
         transform: translateX(60px);
     }
 
-    .slick-prev:hover {
-        transform: translateX(-60px) scale(1.05);
+    .carousel-prev:hover {
+        transform: translateX(-60px) translateY(0) scale(1.05);
     }
 
-    .slick-next:hover {
-        transform: translateX(60px) scale(1.05);
+    .carousel-next:hover {
+        transform: translateX(60px) translateY(0) scale(1.05);
     }
 
     .menu-carousel {
-        margin-bottom: 70px;
+        margin-bottom: 90px;
     }
 }

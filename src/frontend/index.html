@@ -5,47 +5,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
-    <title>Restaurace Kapitán</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <meta name="description"
+        content="Restaurace Kapitán v Žatci - tradiční česká kuchyně, čerstvé suroviny, příjemné prostředí. Rezervujte si stůl nebo nás kontaktujte. Otevřeno pondělí až sobota.">
+    <meta name="keywords"
+        content="restaurace Žatec, česká kuchyně, restaurace Kapitán, jídlo Žatec, rezervace stolu, restaurace Náměstí Svobody">
+    <meta name="author" content="Restaurace Kapitán">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://restaurace-kapitan.cz/">
 
+    <title>Restaurace Kapitán</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="alternate icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" href="assets/fonts/roboto-v50-latin_latin-ext-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/images/background.webp" as="image">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </noscript>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Restaurace Kapitán",
+      "description": "Tradiční česká kuchyně a příjemné prostředí v královském městě Žatec",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Náměstí Svobody 119",
+        "addressLocality": "Žatec",
+        "postalCode": "438 01",
+        "addressCountry": "CZ"
+      },
+      "telephone": ["+420607007082", "+420608580188"],
+      "email": "hotel-kapitan@email.cz",
+      "servesCuisine": "Czech cuisine",
+      "priceRange": "$$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Monday",
+          "opens": "11:00",
+          "closes": "15:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Tuesday",
+          "opens": "11:00",
+          "closes": "15:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Wednesday", "Thursday", "Friday"],
+          "opens": "11:00",
+          "closes": "21:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "12:00",
+          "closes": "21:00"
+        }
+      ],
+      "image": "https://restaurace-kapitan.cz/assets/images/background.webp",
+      "url": "https://restaurace-kapitan.cz",
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61551638950089",
+        "https://www.instagram.com/restaurace_kapitan_zatec/"
+      ]
+    }
+    </script>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="logo">Restaurace Kapitán</div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+    <header role="banner">
+        <nav role="navigation" aria-label="Hlavní navigace">
+            <div class="logo" aria-label="Restaurace Kapitán - domovská stránka">
+                <a href="#home" aria-label="Domů"><span class="gold-letter">R</span>estaurace <span
+                        class="gold-letter">K</span>apitán</a>
             </div>
-            <ul class="nav-links">
-                <li><a href="#home">Domů</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#about">O nás</a></li>
-                <li><a href="#contact">Kontakt</a></li>
-                <li><a href="#reservation" class="reservation-btn">Rezervace</a></li>
+            <button class="hamburger" aria-label="Otevřít menu" aria-expanded="false" aria-controls="nav-links">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="nav-links" role="menubar">
+                <li role="none"><a href="#home" role="menuitem">Domů</a></li>
+                <li role="none"><a href="#menu" role="menuitem">Menu</a></li>
+                <li role="none"><a href="#about" role="menuitem">O nás</a></li>
+                <li role="none"><a href="#contact" role="menuitem">Kontakt</a></li>
+                <li role="none"><a href="#reservation" class="reservation-btn" role="menuitem">Rezervace</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section id="home" class="hero">
+    <main id="main-content" role="main">
+        <section id="home" class="hero" aria-label="Úvodní sekce">
             <div class="hero-content">
                 <h1 class="animate-text">Restaurace Kapitán</h1>
                 <p class="animate-text delay-1">Poctivá kuchyně a přijemné prostředí v královském městě, Žatec.</p>
                 <div class="hero-buttons">
-                    <a href="#menu" class="cta-button">Prohlédnout menu</a>
-                    <a href="#reservation" class="cta-button secondary">Rezervovat stůl</a>
+                    <a href="#menu" class="cta-button secondary">Prohlédnout menu</a>
+                    <a href="#reservation" class="cta-button">Rezervovat stůl</a>
                 </div>
             </div>
             <div class="scroll-indicator">
@@ -64,28 +130,67 @@
             <div class="menu-grid">
                 <div class="menu-category active" id="main">
                     <div class="menu-items">
-                        <div class="menu-carousel">
-                            <div><img src="assets/menu/menu-1.jpg" alt="Jídelní lístek 1"></div>
-                            <div><img src="assets/menu/menu-2.jpg" alt="Jídelní lístek 2"></div>
-                            <div><img src="assets/menu/menu-3.jpg" alt="Jídelní lístek 3"></div>
-                        </div> 
+                        <div class="menu-carousel" role="region" aria-label="Jídelní lístek">
+                            <div class="carousel-container">
+                                <div class="carousel-track">
+                                    <div class="carousel-slide"><img src="assets/menu/menu-1.webp"
+                                            alt="Jídelní lístek - stránka 1" loading="lazy" width="800" height="900">
+                                    </div>
+                                    <div class="carousel-slide"><img src="assets/menu/menu-2.webp"
+                                            alt="Jídelní lístek - stránka 2" loading="lazy" width="800" height="900">
+                                    </div>
+                                    <div class="carousel-slide"><img src="assets/menu/menu-3.webp"
+                                            alt="Jídelní lístek - stránka 3" loading="lazy" width="800" height="900">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-btn carousel-prev" aria-label="Předchozí">
+                                <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                            </button>
+                            <button class="carousel-btn carousel-next" aria-label="Další">
+                                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                            </button>
+                            <div class="carousel-dots" role="tablist" aria-label="Navigace menu"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-category" id="drinks">
                     <div class="menu-items">
-                        <div class="menu-carousel">
-                            <div><img src="assets/menu/drink-1.jpg" alt="Nápojový lístek 1"></div>
-                            <div><img src="assets/menu/drink-2.jpg" alt="Nápojový lístek 2"></div>
-                            <div><img src="assets/menu/drink-3.jpg" alt="Nápojový lístek 3"></div>
-
-                        </div> 
+                        <div class="menu-carousel" role="region" aria-label="Nápojový lístek">
+                            <div class="carousel-container">
+                                <div class="carousel-track">
+                                    <div class="carousel-slide"><img src="assets/menu/drink-1.webp"
+                                            alt="Nápojový lístek - stránka 1" loading="lazy" width="800" height="900">
+                                    </div>
+                                    <div class="carousel-slide"><img src="assets/menu/drink-2.webp"
+                                            alt="Nápojový lístek - stránka 2" loading="lazy" width="800" height="900">
+                                    </div>
+                                    <div class="carousel-slide"><img src="assets/menu/drink-3.webp"
+                                            alt="Nápojový lístek - stránka 3" loading="lazy" width="800" height="900">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-btn carousel-prev" aria-label="Předchozí">
+                                <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                            </button>
+                            <button class="carousel-btn carousel-next" aria-label="Další">
+                                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                            </button>
+                            <div class="carousel-dots" role="tablist" aria-label="Navigace menu"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-category" id="lunch">
                     <div class="menu-items">
-                        <div class="menu-carousel">
-                            <div><img src="assets/menu/weekly.jpg" alt="Obědové menu "></div>
-                        </div> 
+                        <div class="menu-carousel" role="region" aria-label="Obědové menu">
+                            <div class="carousel-container">
+                                <div class="carousel-track">
+                                    <div class="carousel-slide"><img src="assets/menu/weekly.webp" alt="Obědové menu"
+                                            loading="lazy" width="800" height="900"></div>
+                                </div>
+                            </div>
+                            <div class="carousel-dots" role="tablist" aria-label="Navigace menu"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -96,7 +201,8 @@
                 <div class="about-text">
                     <h2>O nás</h2>
                     <p>Restaurace Kapitán je místem, kde se setkává tradiční česká kuchyně s moderními gastronomickými
-                        trendy. Přijďte si pochutnat a užít si nezapomenutelnou atmosféru Žatce, města chmele a dobrého jídla!</p>
+                        trendy. Přijďte si pochutnat a užít si nezapomenutelnou atmosféru Žatce, města chmele a dobrého
+                        jídla!</p>
                     <div class="about-features">
                         <div class="feature">
                             <i class="fas fa-utensils"></i>
@@ -113,11 +219,16 @@
                             <h3>Oslavy a akce</h3>
                             <p>Možnost oslav v našem salónku, se soukromím a pohodlím</p>
                         </div>
+                        <div class="feature">
+                            <i class="fas fa-star"></i>
+                            <h3>Skvělá atmosféra</h3>
+                            <p>Příjemné prostředí a skvělá atmosféra</p>
+                        </div>
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="assets/images/interior.jpg"
-                        alt="Restaurant interior">
+                    <img src="assets/images/interior.webp" alt="Interiér restaurace Kapitán v Žatci" loading="lazy"
+                        width="600" height="400">
                 </div>
             </div>
         </section>
@@ -127,23 +238,14 @@
             <div class="contact-container">
                 <div class="contact-info">
                     <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <h3>Kontakt</h3>
-                        <p style="font-weight: 500;">Tel:</p>
-                        <p>+420 607 007 082</p>
-                        <p>+420 608 580 188</p>
-                        <p style="font-weight: 500;">Email:</p>
-                        <p>hotel-kapitan@email.cz</p>
-                    </div>
-                    <div class="info-item">
                         <i class="fas fa-clock"></i>
                         <h3>Otevřeno</h3>
                         <p>Pondělí: 11:00 - 15:00</p>
                         <p>Úterý: 11:00 - 15:00</p>
-                        <p>Středa: 11:00 - 22:00</p>
-                        <p>Čtvrtek: 11:00 - 22:00</p>
-                        <p>Pátek: 11:00 - 22:00</p>
-                        <p>Sobota: 12:00 - 22:00</p>
+                        <p>Středa: 11:00 - 21:00</p>
+                        <p>Čtvrtek: 11:00 - 21:00</p>
+                        <p>Pátek: 11:00 - 21:00</p>
+                        <p>Sobota: 12:00 - 21:00</p>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
@@ -151,19 +253,32 @@
                         <p>Náměstí Svobody 119</p>
                         <p>Žatec, 438 01</p>
                     </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <h3>Kontakt</h3>
+                        <p>+420 607 007 082</p>
+                        <p>+420 608 580 188</p>
+                        <p>hotel-kapitan@email.cz</p>
+                    </div>
                 </div>
                 <div class="contact-form">
                     <h3>Napište nám</h3>
-                    <form id="contactForm" method="post" action="email-handler.php">
+                    <form id="contactForm" method="post" action="email-handler.php" aria-label="Kontaktní formulář">
                         <input type="hidden" name="formType" value="contact">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" required placeholder="Vaše jméno">
+                            <label for="name" class="sr-only">Vaše jméno</label>
+                            <input type="text" id="name" name="name" required placeholder="Vaše jméno"
+                                aria-required="true" autocomplete="name">
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" required placeholder="Váš email">
+                            <label for="email" class="sr-only">Váš email</label>
+                            <input type="email" id="email" name="email" required placeholder="Váš email"
+                                aria-required="true" autocomplete="email">
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" required placeholder="Vaše zpráva"></textarea>
+                            <label for="message" class="sr-only">Vaše zpráva</label>
+                            <textarea id="message" name="message" required placeholder="Vaše zpráva"
+                                aria-required="true" rows="5"></textarea>
                         </div>
                         <button type="submit" class="submit-btn">Odeslat</button>
                     </form>
@@ -173,29 +288,42 @@
 
         <section id="reservation" class="reservation-section">
             <h2>Rezervace stolu</h2>
-            <form id="reservationForm" class="reservation-form" method="post" action="email-handler.php">
+            <form id="reservationForm" class="reservation-form" method="post" action="email-handler.php"
+                aria-label="Formulář rezervace stolu">
                 <input type="hidden" name="formType" value="reservation">
                 <div class="form-row">
                     <div class="form-group">
-                        <input type="text" id="resName" name="name" required placeholder="Vaše jméno">
+                        <label for="resName" class="sr-only">Vaše jméno</label>
+                        <input type="text" id="resName" name="name" required placeholder="Vaše jméno"
+                            aria-required="true" autocomplete="name">
                     </div>
                     <div class="form-group">
-                        <input type="email" id="resEmail" name="email" required placeholder="Váš email">
+                        <label for="resEmail" class="sr-only">Váš email</label>
+                        <input type="email" id="resEmail" name="email" required placeholder="Váš email"
+                            aria-required="true" autocomplete="email">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <input type="date" id="resDate" name="date" required>
+                        <label for="resDate">Datum</label>
+                        <input type="date" id="resDate" name="date" required aria-required="true"
+                            aria-label="Datum rezervace">
                     </div>
                     <div class="form-group">
-                        <input type="time" id="resTime" name="time" required>
+                        <label for="resTime">Čas</label>
+                        <input type="time" id="resTime" name="time" required aria-required="true"
+                            aria-label="Čas rezervace">
                     </div>
                     <div class="form-group">
-                        <input type="number" id="resGuests" name="guests" required min="1" placeholder="Počet osob">
+                        <label for="resGuests">Počet osob</label>
+                        <input type="number" id="resGuests" name="guests" required min="1" placeholder="Počet osob"
+                            aria-required="true" aria-label="Počet osob">
                     </div>
                 </div>
                 <div class="form-group">
-                    <textarea id="resMessage" name="message" placeholder="Poznámka (nepovinné)"></textarea>
+                    <label for="resMessage" class="sr-only">Poznámka</label>
+                    <textarea id="resMessage" name="message" placeholder="Poznámka (nepovinné)" rows="4"
+                        aria-label="Poznámka k rezervaci"></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Rezervovat</button>
             </form>
@@ -216,17 +344,23 @@
             <div class="footer-section">
                 <h3>Sledujte nás</h3>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/profile.php?id=61551638950089&locale=cs_CZ"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/restaurace_kapitan_zatec/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61551638950089&locale=cs_CZ"
+                        aria-label="Navštivte nás na Facebooku" target="_blank" rel="noopener noreferrer"><i
+                            class="fab fa-facebook" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/restaurace_kapitan_zatec/"
+                        aria-label="Navštivte nás na Instagramu" target="_blank" rel="noopener noreferrer"><i
+                            class="fab fa-instagram" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Restaurace Kapitán. Všechna práva vyhrazena.</p>
+            <p>&copy; 2026 Restaurace Kapitán. Všechna práva vyhrazena.</p>
+            <p class="credits">Vytvořil <a href="https://github.com/kristus310" target="_blank"
+                    rel="noopener noreferrer">Kristián Botek</a></p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>
